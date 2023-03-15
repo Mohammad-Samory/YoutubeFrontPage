@@ -1,0 +1,921 @@
+/* Start Variables */
+:root {
+  --mainBackGroundColor: rgb(15, 15, 15);
+  --mainColor: #ffffff;
+  --lightGreyBorder: hsl(0, 0%, 18.82%);
+  --searchbox-background-button-color: hsla(0, 0%, 100%, 0.08);
+  --buttons-hover-state: rgba(255, 255, 255, 0.1);
+  --light-blue: #3ea6ff;
+  --links-container-background-color: #282828;
+  --sections-border-bottom: rgba(255, 255, 255, 0.2);
+  --scrollbar-color: #eef0f2;
+  --extra-info-color: #aaaaaa;
+  --low-opacity-background: rgba(0, 0, 0, 0.5);
+  --btn-on-active: #f1f1f1;
+}
+
+/* End Variables */
+/* Start Global Rules */
+* {
+  --webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+body {
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+  background-color: var(--mainBackGroundColor);
+}
+html {
+  scroll-behavior: smooth;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+/* Scroll Bar customize For now this only Works in Chrome */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--mainBackGroundColor);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-color);
+  border-radius: 40px;
+}
+/* ----------------------------------------- */
+/* Start Nav Bar */
+.nav {
+  width: 100%;
+  height: 56px;
+  top: 0;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--mainBackGroundColor);
+  color: var(--mainColor);
+  padding: 5px;
+  gap: 5px;
+  z-index: 2030;
+}
+/* Start Left Nav */
+.nav .left-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 10px;
+  gap: 10px;
+  width: 20%;
+}
+.nav .left-nav .toggle-menu i,
+.left-container .div-space .toggle-menu > i {
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.nav .left-nav .logo,
+.left-container .div-space .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+.nav .left-nav .logo > i,
+.left-container .div-space .logo > i {
+  display: block;
+  color: rgb(255, 0, 0);
+  position: relative;
+}
+.nav .left-nav .logo > i::after,
+.left-container .div-space .logo > i::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 72%;
+  transform: translate(-50%, -50%);
+  width: 0px;
+  height: 0px;
+  border-color: transparent transparent transparent white;
+  border-style: solid;
+  border-width: 6px 13px;
+}
+.nav .left-nav .logo > span,
+.left-container .div-space .logo > span {
+  font-weight: bold;
+  font-size: 20px;
+  position: relative;
+  color: var(--mainColor);
+}
+.nav .left-nav .logo > span::before,
+.left-container .div-space .logo > span::before {
+  content: "JO";
+  position: absolute;
+  color: grey;
+  top: -12px;
+  right: -10px;
+  font-size: 12px;
+  font-weight: 100;
+}
+/* End Left Nav */
+/* Start middle Nav */
+.nav .middle-nav {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10px;
+}
+.nav .middle-nav .searchbox {
+  position: relative;
+  width: 70%;
+  border-radius: 40px;
+}
+
+.nav .middle-nav input {
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  height: 40px;
+  border-radius: 40px 0 0 40px;
+  background-color: var(--mainBackGroundColor);
+  outline: none;
+  border: 1px solid var(--lightGreyBorder);
+  position: relative;
+  color: var(--mainColor);
+  font-size: 15px;
+  border: 1px solid var(--lightGreyBorder);
+}
+
+.nav .middle-nav input:focus {
+  border: 1px solid var(--light-blue);
+}
+
+.nav .middle-nav .searchbox::after {
+  font-family: var(--fa-style-family-classic);
+  content: "\f002";
+  font-weight: 900;
+  position: absolute;
+  width: 70px;
+  height: 38px;
+  background-color: var(--searchbox-background-button-color);
+  border: 1px solid var(--lightGreyBorder);
+  top: 50%;
+  right: -72px;
+  transform: translateY(-50%);
+  color: var(--mainColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0 40px 40px 0;
+  cursor: pointer;
+}
+
+.nav .middle-nav > input::placeholder {
+  font-size: 18px;
+}
+.nav .middle-nav > a {
+  background-color: #181818;
+  margin-left: 82px;
+}
+/* End middle Nav */
+/* Start Right Nav */
+.nav .right-nav {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 20px;
+  margin-right: 10px;
+  width: 20%;
+}
+
+.account-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+.channel-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+}
+/* End Right Nav */
+.nav .left-nav .toggle-menu i:hover,
+.nav .middle-nav > a:hover,
+.nav .right-nav > a:hover,
+.go-back > i:hover,
+.preferences i,
+.preferences .prefslider span:hover {
+  background-color: var(--buttons-hover-state);
+  transition: 0.3s;
+}
+.nav .middle-nav > a:hover::after {
+  content: "Search with your voice";
+}
+.nav .right-nav > a:first-child:hover::after {
+  content: "Create";
+}
+.nav .right-nav > a:nth-child(2):hover::after {
+  content: "Notification";
+}
+.nav .middle-nav > a:hover::after,
+.nav .right-nav > a:first-child:hover::after,
+.nav .right-nav > a:nth-child(2):hover::after {
+  position: absolute;
+  width: max-content;
+  background-color: var(--lightGreyBorder);
+  bottom: -40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 100;
+  font-size: 12px;
+  padding: 10px;
+  border-radius: 4px;
+}
+.nav .middle-nav > a,
+.nav .right-nav > a,
+.nav .left-nav .toggle-menu i,
+.left-container .div-space .toggle-menu i,
+.go-back > i {
+  color: var(--mainColor);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 50%;
+}
+@media (max-width: 767px) {
+  .nav .left-nav > a {
+    display: none;
+  }
+  .nav .right-nav > a {
+    display: none;
+  }
+}
+/* End Nav Bar */
+/* Start Account links */
+.links-container {
+  display: none;
+  background-color: var(--links-container-background-color);
+  max-width: 300px;
+  max-height: 711px;
+  border-radius: 12px;
+  position: absolute;
+  top: 24px;
+  right: 40px;
+  z-index: 3005;
+}
+.links-container.open {
+  display: block;
+}
+.links-container a,
+.links-container li {
+  color: var(--mainColor);
+}
+.user-account {
+  display: flex;
+  gap: 10px;
+  padding: 16px;
+}
+.user-account .text {
+  color: var(--mainColor);
+  line-height: 1.4;
+}
+.user-account .text > span {
+  display: block;
+}
+.user-account .text > a {
+  color: var(--light-blue);
+  display: block;
+  margin-top: 5px;
+}
+.links-scrollbar {
+  height: calc(711px - 105px);
+  overflow-y: auto;
+}
+.links-container .user-account,
+.links > div:not(:last-child) {
+  border-bottom: 1px solid var(--sections-border-bottom);
+}
+.links-container li:hover,
+.active-account .profile:hover,
+.active-account > a:hover,
+.other-account-profiles:hover,
+.add-signout li:hover,
+.appearance-links .mode > div:hover {
+  background-color: var(--buttons-hover-state);
+}
+/* Custom Scroll bar */
+
+.links-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--links-container-background-color);
+  border-radius: 12px;
+}
+.links-scrollbar::-webkit-scrollbar-thumb {
+  border-radius: 0;
+}
+.user-channel-settings li,
+.manage-data li,
+.appearance li,
+.settings li,
+.feedback li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px;
+  transition: 0.3s;
+}
+.user-channel-settings li > i,
+.manage-data li > i,
+.appearance li > i,
+.settings li > i,
+.feedback li > i {
+  cursor: pointer;
+}
+.user-channel-settings a,
+.manage-data a,
+.appearance a,
+.settings a,
+.feedback a {
+  display: block;
+  padding: 16px 0;
+  flex-grow: 1;
+}
+.user-channel-settings a i,
+.manage-data a i,
+.appearance a i,
+.settings a i,
+.feedback a i {
+  margin-right: 20px;
+}
+
+/* End Account links */
+/* Start Switch Account Links */
+
+.switch-account-menu,
+.appearance-links {
+  display: none;
+  background-color: var(--links-container-background-color);
+  width: 300px;
+  border-radius: 12px;
+  position: absolute;
+  top: 53px;
+  right: 13px;
+}
+.switch-account-menu.open,
+.appearance-links.open {
+  display: block;
+}
+.switch-account-menu h4,
+.switch-account-menu a,
+.switch-account-menu i {
+  color: var(--mainColor);
+  font-size: 15px;
+}
+.switch-account-menu span {
+  font-size: 14px;
+}
+.go-back {
+  padding: 16px;
+  color: var(--mainColor);
+  display: flex;
+  align-items: center;
+}
+.go-back > i {
+  margin-right: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.active-account .text {
+  padding: 16px;
+  color: var(--extra-info-color);
+}
+
+.active-account .text span:last-child {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--sections-border-bottom);
+}
+.active-account .text span:last-child,
+.active-account .profile span:last-child {
+  display: block;
+  margin-top: 5px;
+}
+.active-account .profile,
+.other-account-profiles {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 5px 16px;
+}
+.active-account .profile img {
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--light-blue);
+}
+.active-account .profile .profile-info > span {
+  color: var(--extra-info-color);
+}
+.active-account > a {
+  display: block;
+  padding: 16px;
+  transition: 0.3s;
+  border-bottom: 5px solid var(--sections-border-bottom);
+}
+
+.other-accounts > .text {
+  padding: 16px;
+  color: var(--mainColor);
+}
+.other-accounts > .text > span:last-child {
+  display: block;
+  margin: 10px 0;
+}
+.other-account-profiles > .text {
+  line-height: 1.2;
+}
+.other-account-profiles > .text > span {
+  color: var(--extra-info-color);
+}
+.add-signout li {
+  padding: 16px;
+}
+.go-back,
+.other-account-profiles {
+  border-bottom: 1px solid var(--sections-border-bottom);
+}
+/* End Switch Account Links */
+
+.appearance-links .mode > span {
+  color: var(--extra-info-color);
+  font-size: 14px;
+  display: block;
+  padding: 16px;
+}
+.appearance-links .mode > div {
+  color: var(--mainColor);
+  padding: 16px 0;
+  padding-left: 50px;
+  position: relative;
+  cursor: pointer;
+}
+.appearance-links .mode > div.active::before {
+  font-family: var(--fa-style-family-classic);
+  content: "\f00c";
+  font-weight: 900;
+  position: absolute;
+  font-size: 22px;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* Start Side Bar */
+.content {
+  display: flex;
+  gap: 15px;
+}
+.space {
+  width: 240px;
+  height: 100vh;
+}
+.left-container {
+  width: 240px;
+  height: 100vh;
+  background-color: var(--mainBackGroundColor);
+  position: fixed;
+  z-index: 2005;
+  left: 0;
+  top: 56px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.left-container .sidebar {
+  position: relative;
+  padding-right: 10px;
+}
+.div-space {
+  min-height: 56px;
+  color: var(--mainColor);
+  visibility: visible;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  top: -56px;
+  left: 0;
+  margin-left: 10px;
+}
+.sidebar .user-related,
+.sidebar .main,
+.sidebar .explore {
+  padding: 10px 0;
+}
+.sidebar .main li,
+.sidebar .user-related ul:not(:last-child) li,
+.sidebar .subscription ul:not(:last-child) li,
+.sidebar .explore li {
+  color: var(--mainColor);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.sidebar li:hover,
+.sidebar .show-more > div:hover {
+  border-radius: 12px;
+  background-color: var(--buttons-hover-state);
+}
+.sidebar a {
+  color: var(--mainColor);
+  padding: 10px;
+  flex-grow: 1;
+}
+.sidebar .main li i,
+.sidebar .user-related li i,
+.sidebar .explore li i,
+.sidebar .show-more .show-more-btn > i,
+.sidebar .show-more i {
+  font-size: 20px;
+  padding: 15px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sidebar .subscription {
+  padding-bottom: 16px;
+}
+.sidebar .subscription > h4 {
+  padding: 16px;
+  color: var(--mainColor);
+}
+.sidebar .subscription li a {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.sidebar .subscription ul li {
+  position: relative;
+}
+.sidebar .subscription ul li.active::after,
+.sidebar .subscription ul li.active::before {
+  position: absolute;
+  color: red;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.sidebar .subscription ul li.active::after {
+  content: "Live";
+  right: 35px;
+  font-size: 14px;
+}
+.sidebar .subscription ul li.active::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  right: 68px;
+  background-color: red;
+}
+
+.sidebar .user-related,
+.sidebar .main,
+.sidebar .subscription {
+  border-bottom: 1px solid var(--lightGreyBorder);
+}
+.sidebar .show-more .show-more-btn,
+.sidebar .show-less-btn {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  cursor: pointer;
+  color: var(--mainColor);
+}
+.sidebar .show-more .show-more-btn > span,
+.sidebar .show-less-btn span {
+  display: block;
+  padding: 10px;
+  flex-grow: 1;
+}
+.sidebar .show-more li {
+  display: none;
+  align-items: center;
+  color: var(--mainColor);
+  margin-left: 10px;
+}
+.sidebar .show-more.active li {
+  display: flex;
+}
+.sidebar .show-more .show-more-btn.active,
+.sidebar .show-less-btn.active {
+  display: none;
+}
+@media (min-width: 768px) and (max-width: 1312px) {
+  .left-container {
+    width: 72px;
+  }
+  .space {
+    width: 72px;
+  }
+  .sidebar .user-related .ur-main li:not(:first-child),
+  .sidebar .subscription,
+  .sidebar .explore,
+  .sidebar .user-related .show-more {
+    display: none;
+  }
+  .sidebar .user-related,
+  .sidebar .main,
+  .sidebar .subscription {
+    border: none;
+  }
+  .sidebar .user-related {
+    padding: 0;
+  }
+  .sidebar .main li,
+  .sidebar .user-related .ur-main li:first-of-type {
+    flex-direction: column;
+  }
+  .sidebar .main li a,
+  .sidebar .user-related li:first-of-type a {
+    font-size: 10px;
+    padding: 5px 0;
+  }
+}
+
+.left-container.active {
+  z-index: 3005;
+  display: flex;
+  width: 240px;
+}
+.sidebar .user-related ul li:not(:first-child).show,
+.sidebar .subscription.show,
+.sidebar .explore.show,
+.sidebar .user-related .show-more.show {
+  display: block;
+}
+.sidebar .user-related ul:first-of-type li.show {
+  display: flex;
+}
+.sidebar .user-related.show,
+.sidebar .main.show,
+.sidebar .subscription.show {
+  border-bottom: 1px solid var(--lightGreyBorder);
+}
+.sidebar .user-related.show {
+  padding: 10px 0;
+}
+
+.sidebar .main li.show,
+.sidebar .user-related li:first-of-type.show {
+  flex-direction: row;
+}
+.sidebar .main li a.show,
+.sidebar .user-related li:first-of-type a.show {
+  font-size: 16px;
+  padding: 10px;
+}
+
+@media (max-width: 767px) {
+  .left-container {
+    display: none;
+  }
+  .space {
+    display: none;
+  }
+  .left-container.active {
+    z-index: 3005;
+    top: 0px;
+    position: fixed;
+  }
+  .left-container.active .div-space {
+    position: relative;
+    top: 0;
+  }
+  .sidebar {
+    overflow-y: auto;
+  }
+}
+
+/* End Side Bar */
+/* Start video container */
+.main-content {
+  width: calc(100% - 255px);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.preferences {
+  width: 100%;
+  min-height: 50px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow-x: hidden;
+}
+.preferences .prefslider {
+  display: flex;
+  width: calc(100% - 70px);
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+.preferences .prefslider.dragging {
+  scroll-behavior: auto;
+  cursor: grab;
+}
+.prefslider.dragging span {
+  user-select: none;
+  pointer-events: none;
+}
+.preferences .prefslider span {
+  color: var(--mainColor);
+  background-color: var(--searchbox-background-button-color);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 16px;
+  white-space: nowrap;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+.preferences .prefslider span.active {
+  background-color: var(--btn-on-active);
+  color: var(--mainBackGroundColor);
+}
+.preferences i {
+  position: absolute;
+  color: var(--mainColor);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.preferences i::before {
+  z-index: 10;
+}
+.preferences .left {
+  display: none;
+  left: 0;
+}
+.preferences .right {
+  right: 0;
+}
+.preferences .left::after,
+.preferences .right::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  min-height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9;
+}
+.left::after {
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    var(--mainBackGroundColor) 70%,
+    transparent
+  );
+}
+.right::after {
+  right: 0;
+  background: linear-gradient(
+    -90deg,
+    var(--mainBackGroundColor) 73%,
+    transparent
+  );
+}
+
+/* Start Videos Content */
+.videos-container {
+  display: grid;
+  gap: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+}
+@media (min-width: 1412px) {
+  .videos-container {
+    display: grid;
+    grid-template-columns: repeat(4, calc(97% / 4));
+  }
+}
+@media (min-width: 992px) and (max-width: 1411px) {
+  .videos-container {
+    grid-template-columns: repeat(3, calc(97% / 3));
+  }
+}
+@media (max-width: 991px) {
+  .videos-container {
+    grid-template-columns: repeat(2, calc(97% / 2));
+  }
+}
+@media (max-width: 767px) {
+  .videos-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+.video-box {
+  max-height: 450px;
+  overflow: hidden;
+}
+
+.video-box iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 16px;
+}
+.video-box .channel-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.channel-info img {
+  align-self: flex-start;
+}
+.channel-info .channel-text {
+  flex-grow: 1;
+  height: 100px;
+  overflow: hidden;
+  padding-right: 24px;
+}
+.channel-info .channel-text > h4 {
+  color: var(--mainColor);
+  font-weight: 500;
+  white-space: normal;
+  max-height: 44px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.channel-info .channel-text > a,
+.channel-info .channel-text > span {
+  color: var(--extra-info-color);
+}
+.channel-info .channel-text > a {
+  display: block;
+  margin: 5px 0;
+}
+.channel-info .channel-text > span:last-child {
+  position: relative;
+  display: inline-block;
+  margin-left: 10px;
+}
+.channel-info .channel-text > span:last-child::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: var(--extra-info-color);
+  border-radius: 50%;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+@media (max-width: 767px) {
+  .video-box iframe {
+    height: 300px;
+  }
+}
+/* End Videos Content */
+/* End video container */
